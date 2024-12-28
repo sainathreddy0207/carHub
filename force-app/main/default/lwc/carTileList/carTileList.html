@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Cars Available" icon-name="standard:webcart">
+        <div class="slds-p-around_medium wrapper">
+            <template if:true={carsData.length}>
+                <div class="content">
+                    <template for:each={carsData} for:item="car">
+                        <c-car-tile onselected={handleCarSelected} key={car.Id} car={car}></c-car-tile>
+                        
+                    </template>
+                </div>
+            </template>
+            <template if:false={carsData.length}>
+                <c-place-holder message="No Cars Are Available for your selection"></c-place-holder>
+            </template>
+        </div>
+            
+    </lightning-card>
+</template>
